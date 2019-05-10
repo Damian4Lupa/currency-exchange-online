@@ -20,7 +20,6 @@ body {
 
 .exchange {
   margin-top: 1.5rem;
-  display: block;
 }
 
 .CurrencyInfo {
@@ -31,8 +30,19 @@ body {
   margin-top: 5rem
 }
 
-.rotated {
-  transform: rotate(180deg)
+/* .rotate {
+  animation: rotation 5s infinite linear
+  animation: roll 3s infinite;
+} */
+
+.rotate {
+  margin-top: 1.5rem;
+  display: flex;
+  /* display: inline-block; */
+  animation: roll 1s infinite;
+  /* animation: spin 1000ms linear infinite, moveLeftToRight 5s linear infinite */
+
+  /* animation-delay: 1s; */
 }
 
 .featurette-divider {
@@ -97,4 +107,14 @@ h4 {
 
 .text-muted {
   color: #6c757d !important;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
 }
