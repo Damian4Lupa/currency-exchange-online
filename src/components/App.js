@@ -3,6 +3,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Header from './Header'
 import Footer from './Footer'
+import Offer from './Offer'
 import Calculator from './Calculator';
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
       <div>
         <Header />
         <Calculator />
-        <h1>działa</h1>
+        <Offer />
         <Footer />
       </div>
     );
