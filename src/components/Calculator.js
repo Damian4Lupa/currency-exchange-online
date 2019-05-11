@@ -56,8 +56,11 @@ class Calculator extends Component {
     }
 
     handleButtonRotate = () => {
+        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         this.setState({
-            rotateButton: true
+            rotateButton: true,
+            valueIHave: this.state.valueIWant,
+            valueIWant: this.state.valueIHave,
         })
         setTimeout(this.handleButtonChange, 1000)
     }
@@ -75,13 +78,13 @@ class Calculator extends Component {
     }
 
     render() {
-        
+        console.log(this.props.currency["USD"])//1.123 - kurs
         const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
         const choiceCurrencyIHave = null //tablica z map()
         const choiceCurrencyIWant = null
-        const flag_IHave = `./img/flags/${currencyIHave}.png`
-        const flag_IWant = `./img/flags/${currencyIWant}.png`
+        // const flag_IHave = `./img/flags/${currencyIHave}.png`
+        // const flag_IWant = `./img/flags/${currencyIWant}.png`
 
 
 
