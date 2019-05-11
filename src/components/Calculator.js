@@ -6,44 +6,46 @@ import exchange from './img/exchange.svg'
 class Calculator extends Component {
     state = {
         rotateButton: false,
-        valueHave: "100",
-        valueWant: "",
+        currencyIHave: "EUR",
+        currencyIWant: "USD",
+        valueIHave: "100",
+        valueIWant: "",
     }
 
     data = [
         { id: "EUR", title: "Euro", symbol: "€" },
-        { id: "BGN", title: "Euro", symbol: "€" },
-        { id: "NZD", title: "Euro", symbol: "€" },
-        { id: "ILS", title: "Euro", symbol: "€" },
-        { id: "RUB", title: "Euro", symbol: "€" },
-        { id: "CAD", title: "Euro", symbol: "€" },
-        { id: "USD", title: "Euro", symbol: "€" },
-        { id: "PHP", title: "Euro", symbol: "€" },
-        { id: "CHF", title: "Euro", symbol: "€" },
-        { id: "ZAR", title: "Euro", symbol: "€" },
-        { id: "AUD", title: "Euro", symbol: "€" },
-        { id: "JPY", title: "Euro", symbol: "€" },
-        { id: "TRY", title: "Euro", symbol: "€" },
-        { id: "HKD", title: "Euro", symbol: "€" },
-        { id: "MYR", title: "Euro", symbol: "€" },
-        { id: "THB", title: "Euro", symbol: "€" },
-        { id: "HRK", title: "Euro", symbol: "€" },
-        { id: "NOK", title: "Euro", symbol: "€" },
-        { id: "IDR", title: "Euro", symbol: "€" },
-        { id: "DKK", title: "Euro", symbol: "€" },
-        { id: "CZK", title: "Euro", symbol: "€" },
-        { id: "HUF", title: "Euro", symbol: "€" },
-        { id: "GBP", title: "Euro", symbol: "€" },
-        { id: "MXN", title: "Euro", symbol: "€" },
-        { id: "KRW", title: "Euro", symbol: "€" },
-        { id: "ISK", title: "Euro", symbol: "€" },
-        { id: "SGD", title: "Euro", symbol: "€" },
-        { id: "BRL", title: "Euro", symbol: "€" },
-        { id: "PLN", title: "Euro", symbol: "€" },
-        { id: "INR", title: "Euro", symbol: "€" },
-        { id: "RON", title: "Euro", symbol: "€" },
-        { id: "CNY", title: "Euro", symbol: "€" },
-        { id: "SEK", title: "Euro", symbol: "€" },
+        { id: "BGN", title: "Bulgarian lev", symbol: "лв" },
+        { id: "NZD", title: "New Zealand dollar", symbol: "$" },
+        { id: "ILS", title: "Israeli new shekel", symbol: "₪" },
+        { id: "RUB", title: "Russian ruble", symbol: "₽" },
+        { id: "CAD", title: "Canadian Dollar", symbol: "$" },
+        { id: "USD", title: "U. S. Dollar", symbol: "$" },
+        { id: "PHP", title: "Philippine peso", symbol: "₱" },
+        { id: "CHF", title: "Swiss Francs", symbol: "CHF" },
+        { id: "ZAR", title: "South African rand", symbol: "R" },
+        { id: "AUD", title: "Australian Dollar", symbol: "$" },
+        { id: "JPY", title: "Yen", symbol: "¥" },
+        { id: "TRY", title: "Turkish lira", symbol: "₺" },
+        { id: "HKD", title: "Hong Kong dollar", symbol: "$" },
+        { id: "MYR", title: "Malaysian ringgit", symbol: "RM" },
+        { id: "THB", title: "Thai baht", symbol: "฿" },
+        { id: "HRK", title: "Croatian kuna", symbol: "kn" },
+        { id: "NOK", title: "Norwegian Kroners", symbol: "kr" },
+        { id: "IDR", title: "Indonesian rupiah", symbol: "Rp" },
+        { id: "DKK", title: "Danish Kroners", symbol: "kr" },
+        { id: "CZK", title: "Czech Koruna", symbol: "Kc" },
+        { id: "HUF", title: "Hungarian forint", symbol: "Ft" },
+        { id: "GBP", title: "Pounds Sterling", symbol: "£" },
+        { id: "MXN", title: "Mexican Pesos", symbol: "$" },
+        { id: "KRW", title: "South Korean won", symbol: "₩" },
+        { id: "ISK", title: "Icelandic krona", symbol: "kr" },
+        { id: "SGD", title: "Singapore dollar", symbol: "$" },
+        { id: "BRL", title: "Brazilian real", symbol: "R$" },
+        { id: "PLN", title: "Polish złoty", symbol: "zł" },
+        { id: "INR", title: "Indian Rupee", symbol: "₹" },
+        { id: "RON", title: "Romanian leu", symbol: "lei" },
+        { id: "CNY", title: "Renminbi (China)", symbol: "元" },
+        { id: "SEK", title: "Norwegian Kroners", symbol: "kr" },
     ]
 
 
@@ -60,9 +62,28 @@ class Calculator extends Component {
         setTimeout(this.handleButtonChange, 1000)
     }
 
+    handleChangeValueIWant = event => {
+        this.setState({
+            valueIWant: event.target.value
+        })
+    }
+
+    handleChangeValueIHave = event => {
+        this.setState({
+            valueIHave: event.target.value
+        })
+    }
+
     render() {
-        const { valueHave, valueWant } = this.state
-        let btn_class = this.state.rotateButton ? "rotate" : "exchange"
+        
+        const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
+        const btn_class = this.state.rotateButton ? "rotate" : "exchange"
+        const choiceCurrencyIHave = null //tablica z map()
+        const choiceCurrencyIWant = null
+        const flag_IHave = `./img/flags/${currencyIHave}.png`
+        const flag_IWant = `./img/flags/${currencyIWant}.png`
+
+
 
         return (
             <div className="alarmInfo">
@@ -72,14 +93,14 @@ class Calculator extends Component {
                         <div className="col-5">
                             <h4>Currency I Have:</h4>
                             <select className="custom-select custom-select-lg mb-3">
-                                <option selected>Open this select menu</option>
+                                <option selected>{choiceCurrencyIHave}</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                             <div className="lg mb-3">
 
-                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" placeholder={valueHave} value={valueHave} />
+                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" placeholder={valueIHave} value={valueIHave} onChange={this.handleChangeValueIHave} />
 
                             </div>
                         </div>
@@ -95,14 +116,14 @@ class Calculator extends Component {
                         <div className="col-5">
                             <h4>Currency I Want:</h4>
                             <select className="custom-select custom-select-lg mb-3">
-                                <option selected>Open this select menu</option>
+                                <option selected>{choiceCurrencyIWant}</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
 
                             <div className="lg mb-3">
-                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg" />
+                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
                             </div>
                         </div>
 
