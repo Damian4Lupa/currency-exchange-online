@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import exchange from './img/exchange.svg'
+import SelectIHave from './SelectIHave'
+import SelectIWant from './SelectIWant'
 
 
 
@@ -48,21 +50,12 @@ class Calculator extends Component {
         { id: "SEK", title: "Norwegian Kroners", symbol: "kr" },
     ]
 
+    selectId = ""
 
     handleButtonChange = () => {
         this.setState({
             rotateButton: false
         })
-    }
-
-    handleButtonRotate = () => {
-        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        this.setState({
-            rotateButton: true,
-            valueIHave: this.state.valueIWant,
-            valueIWant: this.state.valueIHave,
-        })
-        setTimeout(this.handleButtonChange, 1000)
     }
 
     handleChangeValueIWant = event => {
@@ -77,14 +70,65 @@ class Calculator extends Component {
         })
     }
 
+    handleButtonRotate = () => {
+        this.setState({
+            rotateButton: true,
+            valueIHave: this.state.valueIWant,
+            valueIWant: this.state.valueIHave,
+            currencyIHave: this.state.currencyIWant,
+            currencyIWant: this.state.currencyIHave,
+        })
+        setTimeout(this.handleButtonChange, 1000)
+    }
+
+    show_SelectIHave = this.data.map(item => (
+        <SelectIHave key={item.id} id={item.id} title={item.title} chosen={this.handleSelectIHave(this, item.id)} />))
+
+    show_SelectIWant = this.data.map(item => (
+        <SelectIWant key={item.id} id={item.id} title={item.title} chosen={this.handleSelectIWant(this, item.id)} />
+    ))
+
+    handleSelectIHave(id) {
+        this.setState({
+            currencyIHave: id
+        })
+    }
+
+    handleSelectIHave = event => {
+        this.setState({
+            currencyIHave: event.target.value
+        })
+    }
+
+    handleSelectIWant(id) {
+        this.setState({
+            currencyIWant: id
+        })
+    }
+
+    handleSelectIWant2 = event => {
+        this.setState({
+            currencyIWant: event.target.value
+        })
+    }
+
+    //PRZELICZENIE KWOTY
+    conversionValueIWant = () => {
+        const { valueIHave, currencyIWant } = this.state
+        const ratio = this.props.currency[currencyIWant]
+
+    }
+
     render() {
-        console.log(this.props.currency["USD"])//1.123 - kurs
-        const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
+        // console.log(this.props.currency["USD"])//1.123 - kurs
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
-        const choiceCurrencyIHave = null //tablica z map()
-        const choiceCurrencyIWant = null
+
+        const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
+
+
         // const flag_IHave = `./img/flags/${currencyIHave}.png`
         // const flag_IWant = `./img/flags/${currencyIWant}.png`
+
 
 
 
@@ -95,12 +139,14 @@ class Calculator extends Component {
                     <div className="row">
                         <div className="col-5">
                             <h4>Currency I Have:</h4>
-                            <select className="custom-select custom-select-lg mb-3">
-                                <option selected>{choiceCurrencyIHave}</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+
+                            <select className="custom-select custom-select-lg mb-3" value={currencyIHave}
+                                onChange={this.handleSelectIHave}
+                            >
+                                {this.show_SelectIHave}
                             </select>
+
+
                             <div className="lg mb-3">
 
                                 <input type="text" className="form-control form-control-lg" id="colFormLabelLg" placeholder={valueIHave} value={valueIHave} onChange={this.handleChangeValueIHave} />
@@ -118,11 +164,10 @@ class Calculator extends Component {
 
                         <div className="col-5">
                             <h4>Currency I Want:</h4>
-                            <select className="custom-select custom-select-lg mb-3">
-                                <option selected>{choiceCurrencyIWant}</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="custom-select custom-select-lg mb-3" value={currencyIWant}
+                                onChange={this.handleSelectIWant2}
+                            >
+                                {this.show_SelectIWant}
                             </select>
 
                             <div className="lg mb-3">
