@@ -9,45 +9,20 @@ import CurrencyInfo from './CurrencyInfo'
 
 class App extends Component {
   state = {
-    currency: [],
     date: ""
   }
 
-  componentDidMount() {
-    const API = "https://api.exchangeratesapi.io/latest"
 
-    fetch(API)
-      .then(response => {
-        // console.log(response)
-        if (response.ok) {
-          return response
-        }
-        throw Error(response.status)
-        // jeśli response.ok jest false tworzymy błąd i domyśle jest przekazywany do catch. Przekazujemy w nawiasie numer błędu 
-      })
-      .catch(error => alert(`\nWystąpił błąd ${error}`))
-      // catch uruchamia się jeśli pierwszy then zgłasza błąd
-      .then(response => response.json())
-      // z odpowiedzi z serwera konwertujemy to na format json
-      .then(data => {
-        const currency = data.rates
-        const date = data.date
-        // console.log(currency, date)
+  //metoda która zwraca aktualną datę 
 
-        this.setState({
-          currency,
-          date
-        })
-      })
-  }
 
   render() {
-    const { date, currency } = this.state
-  
+    const { date } = this.state
+
     return (
       <div>
         <Header />
-        <Calculator currency={currency} date={this.state.date} />
+        <Calculator />
         <CurrencyInfo date={date} />
         <Offer />
         <Footer />

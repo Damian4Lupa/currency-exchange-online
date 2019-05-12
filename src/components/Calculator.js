@@ -6,13 +6,21 @@ import SelectIWant from './SelectIWant'
 
 
 class Calculator extends Component {
-    state = {
-        rotateButton: false,
-        currencyIHave: "EUR",
-        currencyIWant: "USD",
-        valueIHave: "100",
-        valueIWant: "",
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            rotateButton: false,
+            currencyIHave: "EUR",
+            currencyIWant: "USD",
+            valueIHave: "100",
+            valueIWant: "",
+            currency: [],
+            date: ""
+        }
     }
+
+
 
     data = [
         { id: "EUR", title: "Euro", symbol: "€" },
@@ -50,7 +58,35 @@ class Calculator extends Component {
         { id: "SEK", title: "Norwegian Kroners", symbol: "kr" },
     ]
 
-    selectId = ""
+    // selectId = ""
+
+    //zapytanie o aktualną walutę
+    downloadCurrency() {
+        const API = `https://api.ratesapi.io/api/latest?base=${this.state.currencyIHave}`
+        fetch(API)
+            .then(response => {
+                // console.log(response)
+                if (response.ok) {
+                    return response
+                }
+                throw Error(response.status)
+                // jeśli response.ok jest false tworzymy błąd i domyśle jest przekazywany do catch. Przekazujemy w nawiasie numer błędu 
+            })
+            .catch(error => alert(`\nWystąpił błąd ${error}`))
+            // catch uruchamia się jeśli pierwszy then zgłasza błąd
+            .then(response => response.json())
+            // z odpowiedzi z serwera konwertujemy to na format json
+            .then(data => {
+                const currency = data.rates
+                const date = data.date
+                // console.log(currency, date)
+
+                this.setState({
+                    currency,
+                    date
+                })
+            })
+    }
 
     handleButtonChange = () => {
         this.setState({
@@ -113,23 +149,29 @@ class Calculator extends Component {
     }
 
     //PRZELICZENIE KWOTY
-    conversionValueIWant = () => {
-        const { valueIHave, currencyIWant } = this.state
-        const ratio = this.props.currency[currencyIWant]
+    conversion() {
+        let { valueIHave, currencyIWant, currency } = this.state
+        let ratio = currency[currencyIWant]
+        let result = (valueIHave * ratio).toFixed(2)
+        console.log(`${ratio} - przeliczenie`)
 
+        // this.setState({
+        //     valueIWant: result
+        // })
     }
 
     render() {
-        // console.log(this.props.currency["USD"])//1.123 - kurs
+
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
 
         const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
-
-
+        // console.log(`${this.state.currency[currencyIWant]} - render`)     //1.123 - kurs
         // const flag_IHave = `./img/flags/${currencyIHave}.png`
         // const flag_IWant = `./img/flags/${currencyIWant}.png`
 
 
+        // konstukcja z if - jeśłi coś się zmienia renderuje się
+        this.downloadCurrency()
 
 
         return (
@@ -149,7 +191,7 @@ class Calculator extends Component {
 
                             <div className="lg mb-3">
 
-                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" placeholder={valueIHave} value={valueIHave} onChange={this.handleChangeValueIHave} />
+                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
 
                             </div>
                         </div>
@@ -172,6 +214,7 @@ class Calculator extends Component {
 
                             <div className="lg mb-3">
                                 <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
+                                {/* {valueIWant ? this.conversionValueIWant() : null} */}
                             </div>
                         </div>
 
