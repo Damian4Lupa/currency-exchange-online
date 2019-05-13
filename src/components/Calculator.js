@@ -10,6 +10,7 @@ class Calculator extends Component {
 
 
     state = {
+        isChanged: false,
         rotateButton: false,
         currencyIHave: "EUR",
         currencyIWant: "USD",
@@ -19,9 +20,6 @@ class Calculator extends Component {
         date: "",
         rate: 0
     }
-
-
-
 
     data = [
         { id: "EUR", title: "Euro", symbol: "€" },
@@ -60,31 +58,19 @@ class Calculator extends Component {
     ]
 
 
-    // porówanie tablic - reagowanie na zmiane
-    // jeśli zmienia się IHave - pobranie nowej tablicy
-    // compareCurrencyArray = () => {
-    //     if (this.state.currency === []) {
-    //         this.downloadCurrency()
-    //     } else if (this.state.currency !== this.state.currency) {
-    //         this.downloadCurrency()
-    //     }
-    // }
 
-
-    compareCurrency = () => {
+//Sprawdzanie zmian walut i value
+    compareCurrency = prevState => {
         if (this.state.currencyIHave === "EUR") {
             this.downloadCurrency()
-        } else if (this.state.currencyIHave === this.state.currencyIHave) {
+        } else if (prevState.currencyIHave !== this.state.currencyIHave) {
             this.downloadCurrency()
-        }
-        if (this.state.valueIHave === this.state.valueIHave) {
-            this.conversion()
         }
     }
 
 
 
-    //zapytanie o aktualną walutę
+    //zapytanie serwera o aktualną walutę
     downloadCurrency = () => {
         const API = `https://api.ratesapi.io/api/latest?base=${this.state.currencyIHave}`
         fetch(API)
@@ -139,6 +125,7 @@ class Calculator extends Component {
     handleButtonRotate = () => {
         this.setState({
             rotateButton: true,
+            isChanged: true,
             valueIHave: this.state.valueIWant,
             valueIWant: this.state.valueIHave,
             currencyIHave: this.state.currencyIWant,
@@ -197,9 +184,6 @@ class Calculator extends Component {
         // console.log(`${this.state.currency[currencyIWant]} - render`)     //1.123 - kurs
         // const flag_IHave = `./img/flags/${currencyIHave}.png`
         // const flag_IWant = `./img/flags/${currencyIWant}.png`
-
-
-        // konstukcja z if - jeśłi coś się zmienia renderuje się
 
 
         this.compareCurrency()
