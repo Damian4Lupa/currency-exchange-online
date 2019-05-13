@@ -10,15 +10,20 @@ class Calculator extends Component {
 
 
     state = {
-        isChanged: false,
+        valueIHaveIsChanged: false,
+        valueIWantIsChanged: false,
         rotateButton: false,
+        currencyIHaveIsChanged: false,
+        currencyIWantIsChanged: false,
         currencyIHave: "EUR",
         currencyIWant: "USD",
         valueIHave: "100",
         valueIWant: "",
         currency: [],
         date: "",
-        rate: 0
+        rate: 1.1245,
+        symbolIHave: " €",
+        symbolIWant: " $"
     }
 
     data = [
@@ -59,14 +64,58 @@ class Calculator extends Component {
 
 
 
-//Sprawdzanie zmian walut i value
-    compareCurrency = prevState => {
-        if (this.state.currencyIHave === "EUR") {
-            this.downloadCurrency()
-        } else if (prevState.currencyIHave !== this.state.currencyIHave) {
-            this.downloadCurrency()
-        }
+    //Sprawdzanie zmian walut i value
+    componentDidMount() {
+        this.downloadCurrency()
+
+        setTimeout(() => {
+            this.conversion()
+        }, 200)
+
+        console.log("zamontowano")
     }
+
+    componentDidUpdate() {
+        if (this.state.valueIHaveIsChanged) {
+            this.conversion()
+            this.setState({
+                valueIHaveIsChanged: false
+            })
+        }
+        if (this.state.currencyIWantIsChanged) {
+            this.conversion()
+            this.setState({
+                currencyIWantIsChanged: false
+            })
+        }
+        if (this.state.currencyIHaveIsChanged) {
+            this.downloadCurrency()
+            this.setState({
+                currencyIHaveIsChanged: false
+            })
+            setTimeout(() => {
+                this.conversion()
+            }, 500)
+        }
+        if (this.state.valueIWantIsChanged) {
+            this.reverseConversion()
+            this.setState({
+                valueIWantIsChanged: false
+            })
+        }
+        if (this.state.currencyIHaveIsChanged === true && this.state.valueIHaveIsChanged === true) {
+            this.downloadCurrency()
+            this.setState({
+                currencyIHaveIsChanged: false,
+                valueIHaveIsChanged: false
+            })
+            setTimeout(() => {
+                this.conversion()
+            }, 500)
+        }
+
+    }
+
 
 
 
@@ -112,7 +161,14 @@ class Calculator extends Component {
 
     handleChangeValueIWant = event => {
         this.setState({
-            valueIWant: event.target.value
+            valueIWant: event.target.value,
+            valueIWantIsChanged: true
+        })
+    }
+
+    changeValueIsChanged = () => {
+        this.setState({
+            valueIHaveIsChanged: true
         })
     }
 
@@ -120,12 +176,14 @@ class Calculator extends Component {
         this.setState({
             valueIHave: event.target.value
         })
+        setTimeout(this.changeValueIsChanged, 1500)
     }
 
     handleButtonRotate = () => {
         this.setState({
             rotateButton: true,
-            isChanged: true,
+            currencyIHaveIsChanged: true,
+            valueIHaveIsChanged: true,
             valueIHave: this.state.valueIWant,
             valueIWant: this.state.valueIHave,
             currencyIHave: this.state.currencyIWant,
@@ -143,36 +201,52 @@ class Calculator extends Component {
 
     handleSelectIHave(id) {
         this.setState({
-            currencyIHave: id
+            currencyIHave: id,
+            currencyIHaveIsChanged: true
         })
     }
 
     handleSelectIHave = event => {
         this.setState({
-            currencyIHave: event.target.value
+            currencyIHave: event.target.value,
+            currencyIHaveIsChanged: true
         })
     }
 
     handleSelectIWant(id) {
         this.setState({
-            currencyIWant: id
+            currencyIWant: id,
+            currencyIWantIsChanged: true
         })
     }
 
     handleSelectIWant2 = event => {
         this.setState({
-            currencyIWant: event.target.value
+            currencyIWant: event.target.value,
+            currencyIWantIsChanged: true
         })
     }
 
     //PRZELICZENIE KWOTY
     conversion = () => {
-        let { valueIHave, rate } = this.state
+        let { valueIHave, currency, currencyIWant } = this.state
+        let rate = currency[currencyIWant]
         let valueIWant = (valueIHave * rate).toFixed(2)
-        // console.log(`${rate} - przeliczenie`)
+        console.log("przeliczono")
 
         this.setState({
-            valueIWant
+            valueIWant,
+            rate
+        })
+    }
+
+    reverseConversion = () => {
+        let { valueIWant, currency, currencyIWant } = this.state
+        let rate = currency[currencyIWant]
+        let valueIHave = (valueIWant / rate).toFixed(2)
+
+        this.setState({
+            valueIHave
         })
     }
 
@@ -180,13 +254,14 @@ class Calculator extends Component {
 
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
 
-        const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate } = this.state
-        // console.log(`${this.state.currency[currencyIWant]} - render`)     //1.123 - kurs
+        const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate, symbolIWant } = this.state
+
         // const flag_IHave = `./img/flags/${currencyIHave}.png`
         // const flag_IWant = `./img/flags/${currencyIWant}.png`
 
 
-        this.compareCurrency()
+        let showValueIWant = valueIWant.concat(symbolIWant)
+        console.log(showValueIWant)
 
         return (
             <>
@@ -228,8 +303,8 @@ class Calculator extends Component {
                                 </select>
 
                                 <div className="lg mb-3">
-                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
-                                    {/* {valueIWant ? this.conversionValueIWant() : null} */}
+                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={showValueIWant} />
+
                                 </div>
                             </div>
 
