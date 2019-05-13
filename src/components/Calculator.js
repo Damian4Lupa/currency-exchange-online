@@ -2,23 +2,24 @@ import React, { Component } from 'react';
 import exchange from './img/exchange.svg'
 import SelectIHave from './SelectIHave'
 import SelectIWant from './SelectIWant'
+import CurrencyInfo from './CurrencyInfo'
 
 
 
 class Calculator extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            rotateButton: false,
-            currencyIHave: "EUR",
-            currencyIWant: "USD",
-            valueIHave: "100",
-            valueIWant: "",
-            currency: [],
-            date: ""
-        }
+
+    state = {
+        rotateButton: false,
+        currencyIHave: "EUR",
+        currencyIWant: "USD",
+        valueIHave: "100",
+        valueIWant: "",
+        currency: [],
+        date: "",
+        rate: 0
     }
+
 
 
 
@@ -58,10 +59,33 @@ class Calculator extends Component {
         { id: "SEK", title: "Norwegian Kroners", symbol: "kr" },
     ]
 
-    // selectId = ""
+
+    // porówanie tablic - reagowanie na zmiane
+    // jeśli zmienia się IHave - pobranie nowej tablicy
+    // compareCurrencyArray = () => {
+    //     if (this.state.currency === []) {
+    //         this.downloadCurrency()
+    //     } else if (this.state.currency !== this.state.currency) {
+    //         this.downloadCurrency()
+    //     }
+    // }
+
+
+    compareCurrency = () => {
+        if (this.state.currencyIHave === "EUR") {
+            this.downloadCurrency()
+        } else if (this.state.currencyIHave === this.state.currencyIHave) {
+            this.downloadCurrency()
+        }
+        if (this.state.valueIHave === this.state.valueIHave) {
+            this.conversion()
+        }
+    }
+
+
 
     //zapytanie o aktualną walutę
-    downloadCurrency() {
+    downloadCurrency = () => {
         const API = `https://api.ratesapi.io/api/latest?base=${this.state.currencyIHave}`
         fetch(API)
             .then(response => {
@@ -84,6 +108,12 @@ class Calculator extends Component {
                 this.setState({
                     currency,
                     date
+                })
+            })
+            .then(() => {
+                let rate = this.state.currency[this.state.currencyIWant]
+                this.setState({
+                    rate
                 })
             })
     }
@@ -149,85 +179,88 @@ class Calculator extends Component {
     }
 
     //PRZELICZENIE KWOTY
-    conversion() {
-        let { valueIHave, currencyIWant, currency } = this.state
-        let ratio = currency[currencyIWant]
-        let result = (valueIHave * ratio).toFixed(2)
-        console.log(`${ratio} - przeliczenie`)
+    conversion = () => {
+        let { valueIHave, rate } = this.state
+        let valueIWant = (valueIHave * rate).toFixed(2)
+        // console.log(`${rate} - przeliczenie`)
 
-        // this.setState({
-        //     valueIWant: result
-        // })
+        this.setState({
+            valueIWant
+        })
     }
 
     render() {
 
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
 
-        const { valueIHave, valueIWant, currencyIHave, currencyIWant } = this.state
+        const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate } = this.state
         // console.log(`${this.state.currency[currencyIWant]} - render`)     //1.123 - kurs
         // const flag_IHave = `./img/flags/${currencyIHave}.png`
         // const flag_IWant = `./img/flags/${currencyIWant}.png`
 
 
         // konstukcja z if - jeśłi coś się zmienia renderuje się
-        this.downloadCurrency()
 
+
+        this.compareCurrency()
 
         return (
-            <div className="alarmInfo">
-                <div className="container">
+            <>
+                <div className="alarmInfo">
+                    <div className="container">
 
-                    <div className="row">
-                        <div className="col-5">
-                            <h4>Currency I Have:</h4>
+                        <div className="row">
+                            <div className="col-5">
+                                <h4>Currency I Have:</h4>
 
-                            <select className="custom-select custom-select-lg mb-3" value={currencyIHave}
-                                onChange={this.handleSelectIHave}
-                            >
-                                {this.show_SelectIHave}
-                            </select>
+                                <select className="custom-select custom-select-lg mb-3" value={currencyIHave}
+                                    onChange={this.handleSelectIHave}
+                                >
+                                    {this.show_SelectIHave}
+                                </select>
 
 
-                            <div className="lg mb-3">
+                                <div className="lg mb-3">
 
-                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
+                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
 
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="col-2 exchange">
-                            <center>
-                                <button type="button" className="btn btn-link btn" onClick={this.handleButtonRotate}>
-                                    <img className={btn_class} src={exchange} alt="exchange" height="82px" />
-                                </button>
-                            </center>
-                        </div>
-
-                        <div className="col-5">
-                            <h4>Currency I Want:</h4>
-                            <select className="custom-select custom-select-lg mb-3" value={currencyIWant}
-                                onChange={this.handleSelectIWant2}
-                            >
-                                {this.show_SelectIWant}
-                            </select>
-
-                            <div className="lg mb-3">
-                                <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
-                                {/* {valueIWant ? this.conversionValueIWant() : null} */}
+                            <div className="col-2 exchange">
+                                <center>
+                                    <button type="button" className="btn btn-link btn" onClick={this.handleButtonRotate}>
+                                        <img className={btn_class} src={exchange} alt="exchange" height="82px" />
+                                    </button>
+                                </center>
                             </div>
+
+                            <div className="col-5">
+                                <h4>Currency I Want:</h4>
+                                <select className="custom-select custom-select-lg mb-3" value={currencyIWant}
+                                    onChange={this.handleSelectIWant2}
+                                >
+                                    {this.show_SelectIWant}
+                                </select>
+
+                                <div className="lg mb-3">
+                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
+                                    {/* {valueIWant ? this.conversionValueIWant() : null} */}
+                                </div>
+                            </div>
+
+
+
+
+
                         </div>
-
-
-
-
-
                     </div>
                 </div>
-            </div>
-
+                <CurrencyInfo date={date} rate={rate} />
+            </>
         )
     }
+
 }
 
 export default Calculator
