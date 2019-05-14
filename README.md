@@ -2,6 +2,10 @@
 
 The app allows you to convert one of the 33 currencies into another. Thanks to downloading data from the European Central Bank, exchange rates are always valid.
 
+## Look how it looks
+
+https://damian4lupa.github.io/Currency-exchange-online/
+
 ## Available Scripts
 
 In the project directory, you can run:
