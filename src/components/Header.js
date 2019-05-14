@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 
@@ -19,9 +20,11 @@ const Header = () => {
                     <button className="btn btn-outline-dark" type="submit">Search</button>
                 </div>
             </form>
+            <div className="buttonBreak">
+                <a href="#" className="btn btn-outline-primary" >Sign up</a>
+            </div>
 
-            <a className="btn btn-outline-primary" href="#">Sign up</a>
-            <a className="btn btn-outline-primary" href="#">Registration</a>
+            <a href="#" className="btn btn-outline-primary" >Registration</a>
 
 
         </div>

@@ -12,11 +12,6 @@ const CurrencyInfo = props => {
         rate = props.rate.toFixed(4)
     }
 
-
-
-
-
-
     return (
         <>
             <div className="container">

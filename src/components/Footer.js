@@ -9,8 +9,11 @@ const Footer = () => {
             <footer className="pt-4 my-md-5 pt-md-5 border-top">
                 <div className="row">
                     <div className="col-12 col-md">
-                        <img className="mb-2" src={wallet} alt="" width="70" height="70" />
-                        <small className="d-block mb-3 text-muted">© 2019</small>
+                        <center>
+                            <img className="mb-2" src={wallet} alt="" width="70" height="70" />
+
+                            <small className="d-block mb-3 text-muted">© 2019</small>
+                        </center>
                     </div>
                     <div className="col-6 col-md">
                         <h5>Currency Exchange</h5>

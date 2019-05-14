@@ -4,8 +4,6 @@ import SelectIHave from './SelectIHave'
 import SelectIWant from './SelectIWant'
 import CurrencyInfo from './CurrencyInfo'
 
-
-
 class Calculator extends Component {
 
 
@@ -21,9 +19,7 @@ class Calculator extends Component {
         valueIWant: "",
         currency: [],
         date: "",
-        rate: 1.1245,
-        symbolIHave: " €",
-        symbolIWant: " $"
+        rate: 1.1245
     }
 
     data = [
@@ -59,23 +55,22 @@ class Calculator extends Component {
         { id: "INR", title: "Indian Rupee", symbol: "₹" },
         { id: "RON", title: "Romanian leu", symbol: "lei" },
         { id: "CNY", title: "Renminbi (China)", symbol: "元" },
-        { id: "SEK", title: "Norwegian Kroners", symbol: "kr" },
+        { id: "SEK", title: "Swedish Kroners", symbol: "kr" },
     ]
 
 
-
-    //Sprawdzanie zmian walut i value
     componentDidMount() {
         this.downloadCurrency()
 
         setTimeout(() => {
             this.conversion()
-        }, 200)
+        }, 500)
 
         console.log("zamontowano")
     }
 
     componentDidUpdate() {
+
         if (this.state.valueIHaveIsChanged) {
             this.conversion()
             this.setState({
@@ -117,28 +112,25 @@ class Calculator extends Component {
     }
 
 
-
-
-    //zapytanie serwera o aktualną walutę
     downloadCurrency = () => {
+
         const API = `https://api.ratesapi.io/api/latest?base=${this.state.currencyIHave}`
+
         fetch(API)
             .then(response => {
-                // console.log(response)
+
                 if (response.ok) {
                     return response
                 }
                 throw Error(response.status)
-                // jeśli response.ok jest false tworzymy błąd i domyśle jest przekazywany do catch. Przekazujemy w nawiasie numer błędu 
+
             })
-            .catch(error => alert(`\nWystąpił błąd ${error}`))
-            // catch uruchamia się jeśli pierwszy then zgłasza błąd
+            .catch(error => alert(`\nEasy, it's just a error \n${error} \nRefresh the page `))
             .then(response => response.json())
-            // z odpowiedzi z serwera konwertujemy to na format json
             .then(data => {
                 const currency = data.rates
                 const date = data.date
-                // console.log(currency, date)
+
 
                 this.setState({
                     currency,
@@ -227,12 +219,16 @@ class Calculator extends Component {
         })
     }
 
-    //PRZELICZENIE KWOTY
     conversion = () => {
         let { valueIHave, currency, currencyIWant } = this.state
-        let rate = currency[currencyIWant]
+        let rate = 0
+
+        if (currency[currencyIWant] === NaN || currency[currencyIWant] === undefined) {
+            rate = 1
+        } else {
+            rate = currency[currencyIWant]
+        }
         let valueIWant = (valueIHave * rate).toFixed(2)
-        console.log("przeliczono")
 
         this.setState({
             valueIWant,
@@ -254,14 +250,7 @@ class Calculator extends Component {
 
         const btn_class = this.state.rotateButton ? "rotate" : "exchange"
 
-        const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate, symbolIWant } = this.state
-
-        // const flag_IHave = `./img/flags/${currencyIHave}.png`
-        // const flag_IWant = `./img/flags/${currencyIWant}.png`
-
-
-        let showValueIWant = valueIWant.concat(symbolIWant)
-        console.log(showValueIWant)
+        const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate } = this.state
 
         return (
             <>
@@ -281,7 +270,7 @@ class Calculator extends Component {
 
                                 <div className="lg mb-3">
 
-                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
+                                    <input type="number" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
 
                                 </div>
                             </div>
@@ -303,15 +292,11 @@ class Calculator extends Component {
                                 </select>
 
                                 <div className="lg mb-3">
-                                    <input type="text" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={showValueIWant} />
+                                    <input type="number" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
+
 
                                 </div>
                             </div>
-
-
-
-
-
                         </div>
                     </div>
                 </div>
