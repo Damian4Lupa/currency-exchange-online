@@ -20,11 +20,16 @@ const Header = () => {
                     <button className="btn btn-outline-dark" type="submit">Search</button>
                 </div>
             </form>
-            <div className="buttonBreak">
-                <a href="#" className="btn btn-outline-primary" >Sign up</a>
-            </div>
 
-            <a href="#" className="btn btn-outline-primary" >Registration</a>
+            <form className="form-inline">
+
+                <div className="buttonBreak">
+                    <a href="#" className="btn btn-outline-primary" >Sign up</a>
+                </div>
+
+                <a href="#" className="btn btn-outline-primary" >Registration</a>
+            </form>
+
 
 
         </div>
