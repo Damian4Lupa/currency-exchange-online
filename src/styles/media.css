@@ -23,7 +23,96 @@
     }
 }
 
-@media (min-width: 500px) and (max-width: 769px) {
+@media (min-width: 601px) and (max-width: 769px) {
+
+    div.col-md-7.offset-md-9 {
+        margin-left: 65%;
+    }
+
+    div.col-5 {
+        padding-right: 0px;
+    }
+
+    div.col-2.exchange {
+        position: relative;
+        width: 100%;
+        margin-left: -3vw;
+        margin-right: 1.5vw;
+    }
+
+    div.buttonBreak {
+        display: inline-block;
+    }
+
+    form:nth-of-type(1) {
+        display: none;
+        flex-flow: none;
+        align-items: center;
+    }
+
+    h5 {
+        font-size: 1rem
+    }
+
+    div.col-6.col-md {
+        font-size: 0.7rem;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 10px;
+        margin-right: -100px;
+    }
+
+    div.col-6.col-md:nth-child(2) {
+        margin-right: -50px;
+    }
+}
+
+@media (min-width: 551px) and (max-width: 600px) {
+
+    div.col-md-7.offset-md-9 {
+        margin-left: 65%;
+    }
+
+    div.col-2.exchange {
+        position: relative;
+        width: 100%;
+        margin-left: -4vw;
+        margin-right: 4vw;
+    }
+
+    div.buttonBreak {
+        display: inline-block;
+
+    }
+
+    form:nth-of-type(1) {
+        display: none;
+        flex-flow: none;
+        align-items: center;
+    }
+
+    h5 {
+        font-size: 1rem
+    }
+
+    div.col-6.col-md {
+        font-size: 0.7rem;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 10px;
+        margin-right: -100px;
+    }
+
+    div.col-6.col-md:nth-child(2) {
+        margin-right: -50px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 550px) {
 
     div.col-md-7.offset-md-9 {
         margin-left: 65%;
@@ -66,6 +155,73 @@
     }
 }
 
+@media (min-width: 401px) and (max-width: 499px) {
+
+    html {
+        font-size: 0.8rem;
+    }
+
+    body {
+        margin: 10px
+    }
+
+    div.col-md-7.offset-md-9 {
+        margin-left: 39%;
+        margin-bottom: 7%;
+    }
+
+    div.col-2.exchange {
+        display: none;
+    }
+
+    div.buttonBreak {
+        display: inline-block;
+
+    }
+
+    form:nth-of-type(1) {
+        display: none;
+        flex-flow: none;
+        align-items: center;
+    }
+
+    h5 {
+        font-size: 1.5rem
+    }
+
+    div.col-6.col-md {
+        font-size: 1.2rem;
+        display: inline-block;
+        margin: 0 25vw;
+        padding-right: 1vw;
+        padding-left: 4vw;
+
+    }
+
+    .CurrencyInfo {
+        display: none;
+        ;
+    }
+
+    div.container.marketing {
+        display: none;
+    }
+
+    div.col-5 {
+        display: inline-block;
+        padding-left: 6vw;
+        margin: 0 auto;
+        box-sizing: initial
+    }
+
+    div.col-5:nth-child(3) {
+        margin-top: 25px
+    }
+
+
+
+}
+
 @media (min-width: 360px) and (max-width: 400px) {
 
     html {
@@ -78,7 +234,7 @@
 
     div.col-md-7.offset-md-9 {
         margin-left: 40%;
-        margin-bottom: 2%;
+        margin-bottom: 7%;
     }
 
     div.col-2.exchange {
@@ -110,12 +266,73 @@
     }
 
     .CurrencyInfo {
-        display: none;;
+        display: none;
+        ;
     }
 
-    /* div.col-6.col-md:nth-child(2) {
-        margin-right: -50px;
-    } */
+    div.container.marketing {
+        display: none;
+    }
+
+    div.col-5 {
+        display: inline-block;
+        padding-left: 6vw;
+        margin: 0 auto;
+        box-sizing: initial
+    }
+
+    div.col-5:nth-child(3) {
+        margin-top: 25px
+    }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+
+    html {
+        font-size: 0.6rem;
+    }
+
+    body {
+        margin: 10px
+    }
+
+    div.col-md-7.offset-md-9 {
+        margin-left: 38%;
+        margin-bottom: 7%;
+    }
+
+    div.col-2.exchange {
+        display: none;
+    }
+
+    div.buttonBreak {
+        display: inline-block;
+
+    }
+
+    form:nth-of-type(1) {
+        display: none;
+        flex-flow: none;
+        align-items: center;
+    }
+
+    h5 {
+        font-size: 1.2rem
+    }
+
+    div.col-6.col-md {
+        font-size: 1rem;
+        display: block;
+        margin: 0 25vw;
+        padding-right: 10vw;
+        padding-left: 10vw;
+
+    }
+
+    .CurrencyInfo {
+        display: none;
+        ;
+    }
 
     div.container.marketing {
         display: none;
@@ -133,11 +350,5 @@
     }
 
 
-    /* div.col-5:nth-of-type(2) {
-        display: inline-block;
-        padding-right: 0px;
-        padding-left: 0vw;
-        margin-top: 5%;
-        box-sizing: initial
-    } */
+
 }
