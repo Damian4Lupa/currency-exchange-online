@@ -3,7 +3,7 @@ import React from 'react';
 
 const CurrencyInfo = props => {
 
-    const CurrencyInfo = <center>{`Data on currencies come from the European Central Bank of ${props.date}`}</center>
+    const CurrencyInfo = <center><p>{`Data on currencies come from the European Central Bank of ${props.date}`}</p></center>
     let rate = 0
 
     if (props.rate === undefined) {
