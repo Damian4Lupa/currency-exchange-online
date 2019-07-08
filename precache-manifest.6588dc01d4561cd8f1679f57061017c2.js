@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "52436b6824a275b1cc82faa7124649c9",
+    "revision": "cb858e7b59f7b19a73e2129e0e9c7248",
     "url": "/Currency-exchange-online/index.html"
   },
   {
-    "revision": "3702a7dcd68f96162bad",
+    "revision": "fde70cae3dea8f48411b",
     "url": "/Currency-exchange-online/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "1aa201bcd48c7e62392d",
-    "url": "/Currency-exchange-online/static/css/main.4aeeff07.chunk.css"
+    "revision": "6a766260816506a1d79d",
+    "url": "/Currency-exchange-online/static/css/main.cf79155a.chunk.css"
   },
   {
-    "revision": "3702a7dcd68f96162bad",
-    "url": "/Currency-exchange-online/static/js/2.9118c41b.chunk.js"
+    "revision": "fde70cae3dea8f48411b",
+    "url": "/Currency-exchange-online/static/js/2.77831dc1.chunk.js"
   },
   {
-    "revision": "1aa201bcd48c7e62392d",
-    "url": "/Currency-exchange-online/static/js/main.b09d98a0.chunk.js"
+    "revision": "6a766260816506a1d79d",
+    "url": "/Currency-exchange-online/static/js/main.2c739374.chunk.js"
   },
   {
     "revision": "d981f73f09cb0458e70c",
