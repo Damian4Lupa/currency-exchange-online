@@ -1,7 +1,8 @@
-@media (min-width: 770px) and (max-width: 1114px) {
+@media (min-width: 780px) and (max-width: 1114px) {
 
     div.col-md-7.offset-md-9 {
-        margin-left: 70%;
+        margin-left: 73%;
+        flex: 0, 0
     }
 
     div.col-2.exchange {
@@ -23,7 +24,11 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 769px) {
+@media (min-width: 603px) and (max-width: 779px) {
+
+    html {
+        font-size: 0.7rem;
+    }
 
     div.col-md-7.offset-md-9 {
         margin-left: 65%;
@@ -51,25 +56,23 @@
     }
 
     h5 {
-        font-size: 1rem
+        font-size: 1.5rem
     }
 
     div.col-6.col-md {
-        font-size: 0.7rem;
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        padding-right: 0px;
-        padding-left: 10px;
-        margin-right: -100px;
-    }
-
-    div.col-6.col-md:nth-child(2) {
-        margin-right: -50px;
+        font-size: 1rem;
+        display: block;
+        margin: 0 22vw;
+        padding-right: 0vw;
+        padding-left: 4vw;
     }
 }
 
-@media (min-width: 551px) and (max-width: 600px) {
+@media (min-width: 551px) and (max-width: 602px) {
+
+    html {
+        font-size: 0.8rem;
+    }
 
     div.col-md-7.offset-md-9 {
         margin-left: 65%;
@@ -94,21 +97,15 @@
     }
 
     h5 {
-        font-size: 1rem
+        font-size: 1.5rem
     }
 
     div.col-6.col-md {
-        font-size: 0.7rem;
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        padding-right: 0px;
-        padding-left: 10px;
-        margin-right: -100px;
-    }
-
-    div.col-6.col-md:nth-child(2) {
-        margin-right: -50px;
+        font-size: 1rem;
+        display: block;
+        margin: 0 27vw;
+        padding-right: 0vw;
+        padding-left: 4vw;
     }
 }
 
@@ -137,21 +134,15 @@
     }
 
     h5 {
-        font-size: 1rem
+        font-size: 1.5rem
     }
 
     div.col-6.col-md {
-        font-size: 0.7rem;
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        padding-right: 0px;
-        padding-left: 10px;
-        margin-right: -100px;
-    }
-
-    div.col-6.col-md:nth-child(2) {
-        margin-right: -50px;
+        font-size: 1rem;
+        display: block;
+        margin: 0 27vw;
+        padding-right: 0vw;
+        padding-left: 4vw;
     }
 }
 
@@ -159,10 +150,6 @@
 
     html {
         font-size: 0.8rem;
-    }
-
-    body {
-        margin: 10px
     }
 
     div.col-md-7.offset-md-9 {
@@ -190,13 +177,13 @@
     }
 
     div.col-6.col-md {
-        font-size: 1.2rem;
-        display: inline-block;
-        margin: 0 25vw;
+        font-size: 1rem;
+        display: block;
+        margin: 0 30vw;
         padding-right: 1vw;
-        padding-left: 4vw;
-
+        padding-left: 2vw;;
     }
+
 
     .CurrencyInfo {
         display: none;
@@ -228,10 +215,6 @@
         font-size: 0.6rem;
     }
 
-    body {
-        margin: 10px
-    }
-
     div.col-md-7.offset-md-9 {
         margin-left: 40%;
         margin-bottom: 7%;
@@ -253,16 +236,15 @@
     }
 
     h5 {
-        font-size: 1.2rem
+        font-size: 1.4rem
     }
 
     div.col-6.col-md {
         font-size: 1rem;
         display: block;
-        margin: 0 25vw;
-        padding-right: 10vw;
-        padding-left: 10vw;
-
+        margin: 0 30vw;
+        padding-right: 1vw;
+        padding-left: 2vw;
     }
 
     .CurrencyInfo {
@@ -292,10 +274,6 @@
         font-size: 0.6rem;
     }
 
-    body {
-        margin: 10px
-    }
-
     div.col-md-7.offset-md-9 {
         margin-left: 38%;
         margin-bottom: 7%;
@@ -317,16 +295,15 @@
     }
 
     h5 {
-        font-size: 1.2rem
+        font-size: 1.3rem
     }
 
     div.col-6.col-md {
         font-size: 1rem;
         display: block;
-        margin: 0 25vw;
-        padding-right: 10vw;
-        padding-left: 10vw;
-
+        margin: 0 30vw;
+        padding-right: 1vw;
+        padding-left: 2vw;
     }
 
     .CurrencyInfo {
@@ -348,7 +325,4 @@
     div.col-5:nth-child(3) {
         margin-top: 25px
     }
-
-
-
 }

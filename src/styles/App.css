@@ -30,19 +30,10 @@ body {
   margin-top: 5rem
 }
 
-/* .rotate {
-  animation: rotation 5s infinite linear
-  animation: roll 3s infinite;
-} */
-
 .rotate {
   margin-top: 1.5rem;
   display: flex;
-  /* display: inline-block; */
   animation: roll 1s infinite;
-  /* animation: spin 1000ms linear infinite, moveLeftToRight 5s linear infinite */
-
-  /* animation-delay: 1s; */
 }
 
 .featurette-divider {
@@ -106,7 +97,6 @@ h4 {
 .marketing h2 {
   font-weight: 400;
 }
-
 
 .featurette-heading {
   font-weight: 300;
