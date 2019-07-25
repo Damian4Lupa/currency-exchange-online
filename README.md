@@ -1,6 +1,8 @@
 ## Currency exchange online
 
-The app allows you to convert one of the 33 currencies into another. Thanks to downloading data from the European Central Bank, exchange rates are always valid.
+The application allows you to convert exchange rates between 33 different currencies from around the world. Thanks to the data collected from the European Central Bank, exchange rates are always valid.
+
+The application uses the API https://exchangeratesapi.io/
 
 ## Look how it looks
 
