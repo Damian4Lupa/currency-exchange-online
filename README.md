@@ -6,7 +6,7 @@ The application uses the API https://exchangeratesapi.io/
 
 ## Look how it looks
 
-https://damian4lupa.github.io/Currency-exchange-online/
+https://damian4lupa.github.io/currency-exchange-online/
 
 ## Available Scripts
 
