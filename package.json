@@ -1,14 +1,14 @@
 {
-  "homepage": "https://damian4lupa.github.io/Currency-exchange-online/",
-  "name": "exchange",
-  "version": "0.1.0",
+  "homepage": "https://damian4lupa.github.io/currency-exchange-online/",
+  "name": "currency-exchange-online",
+  "version": "0.1.5",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "^3.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",
