@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7a27b80e10c3e0f85bc883a2cf85310",
+    "revision": "3f2318f48b7a149996ae7949bffce2d1",
     "url": "/currency-exchange-online/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/currency-exchange-online/static/css/2.f3cffc9e.chunk.css"
   },
   {
-    "revision": "468cd8ed688cbc7707d1",
+    "revision": "36d2e99a0b35249a542b",
     "url": "/currency-exchange-online/static/css/main.9439248b.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/currency-exchange-online/static/js/2.54c6f53c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "468cd8ed688cbc7707d1",
-    "url": "/currency-exchange-online/static/js/main.3775fb08.chunk.js"
+    "revision": "36d2e99a0b35249a542b",
+    "url": "/currency-exchange-online/static/js/main.269c9447.chunk.js"
   },
   {
     "revision": "68790f3bebf326c9538c",
