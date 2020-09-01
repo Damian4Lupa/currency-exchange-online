@@ -6,7 +6,6 @@ import CurrencyInfo from './CurrencyInfo'
 
 class Calculator extends Component {
 
-
     state = {
         valueIHaveIsChanged: false,
         valueIWantIsChanged: false,
@@ -108,9 +107,7 @@ class Calculator extends Component {
                 this.conversion()
             }, 500)
         }
-
     }
-
 
     downloadCurrency = () => {
 
@@ -254,37 +251,39 @@ class Calculator extends Component {
 
         return (
             <>
-                <div className="alarmInfo">
+                <section className="alarmInfo">
                     <div className="container">
 
                         <div className="row">
-                            <div className="col-5">
+                            <article className="col-5">
+                                <header>
                                 <h4>Currency I Have:</h4>
-
+                                </header>
                                 <select className="custom-select custom-select-lg mb-3" value={currencyIHave}
                                     onChange={this.handleSelectIHave}
                                 >
                                     {this.show_SelectIHave}
                                 </select>
 
-
                                 <div className="lg mb-3">
 
                                     <input type="number" className="form-control form-control-lg" id="colFormLabelLg" value={valueIHave} onChange={this.handleChangeValueIHave} />
 
                                 </div>
-                            </div>
+                            </article>
 
-                            <div className="col-2 exchange">
+                            <article className="col-2 exchange">
                                 <center>
                                     <button type="button" className="btn btn-link btn" onClick={this.handleButtonRotate}>
                                         <img className={btn_class} src={exchange} alt="exchange" height="82px" />
                                     </button>
                                 </center>
-                            </div>
+                            </article>
 
-                            <div className="col-5">
+                            <article className="col-5">
+                            <header>
                                 <h4>Currency I Want:</h4>
+                            </header>
                                 <select className="custom-select custom-select-lg mb-3" value={currencyIWant}
                                     onChange={this.handleSelectIWant2}
                                 >
@@ -294,17 +293,15 @@ class Calculator extends Component {
                                 <div className="lg mb-3">
                                     <input type="number" className="form-control form-control-lg" id="colFormLabelLg" value={valueIWant} onChange={this.handleChangeValueIWant} placeholder={valueIWant} />
 
-
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
-                </div>
+                </section>
                 <CurrencyInfo date={date} rate={rate} />
             </>
         )
     }
-
 }
 
 export default Calculator

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const CurrencyInfo = props => {
 
     const CurrencyInfo = <center><p>{`Data on currencies come from the European Central Bank of ${props.date}`}</p></center>
@@ -14,19 +13,16 @@ const CurrencyInfo = props => {
 
     return (
         <>
-            <div className="container">
-
+            <section className="container">
                 <div className="row">
                     <div className="col-md-7 offset-md-9">
                         {props.rate ? `Rate: ${rate}` : null}
                     </div>
-
                 </div>
-            </div>
-            <div className="CurrencyInfo">
-
+            </section>
+            <section className="CurrencyInfo">
                 {props.date ? CurrencyInfo : null}
-            </div>
+            </section>
         </>
     )
 }

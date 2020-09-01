@@ -8,16 +8,14 @@ import Offer from './Offer'
 import Calculator from './Calculator';
 
 class App extends Component {
-
   render() {
-
     return (
-      <div>
+      <>
         <Header />
         <Calculator />
         <Offer />
         <Footer />
-      </div>
+      </>
     );
   }
 }

@@ -1,7 +1,7 @@
 {
   "homepage": "https://damian4lupa.github.io/currency-exchange-online/",
   "name": "currency-exchange-online",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
