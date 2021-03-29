@@ -1,328 +1,194 @@
-@media (min-width: 780px) and (max-width: 1114px) {
+@media (max-width: 1025px) {
+  div.col-md-7.offset-md-9 {
+    margin-left: 74%;
+  }
 
-    div.col-md-7.offset-md-9 {
-        margin-left: 73%;
-        flex: 0, 0
-    }
-
-    div.col-2.exchange {
-        position: relative;
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 5px;
-    }
-
-    div.buttonBreak {
-        display: inline-block;
-
-    }
-
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
+  form:nth-of-type(1) {
+    display: none;
+    flex-flow: none;
+    align-items: center;
+  }
 }
 
-@media (min-width: 603px) and (max-width: 779px) {
+@media (max-width: 801px) {
+  html {
+    font-size: 0.9rem;
+  }
 
-    html {
-        font-size: 0.7rem;
-    }
+  div.col-md-7.offset-md-9 {
+    margin-left: 72%;
+  }
 
-    div.col-md-7.offset-md-9 {
-        margin-left: 65%;
-    }
+  .mr-md-3,
+  .mx-md-3 {
+    margin-right: 0.1rem !important;
+  }
 
-    div.col-5 {
-        padding-right: 0px;
-    }
-
-    div.col-2.exchange {
-        position: relative;
-        width: 100%;
-        margin-left: -3vw;
-        margin-right: 1.5vw;
-    }
-
-    div.buttonBreak {
-        display: inline-block;
-    }
-
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
-
-    h5 {
-        font-size: 1.5rem
-    }
-
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 22vw;
-        padding-right: 0vw;
-        padding-left: 4vw;
-    }
+  .col-2,
+  .col-5 {
+    padding-left: 0px;
+  }
 }
 
-@media (min-width: 551px) and (max-width: 602px) {
-
-    html {
-        font-size: 0.8rem;
-    }
-
-    div.col-md-7.offset-md-9 {
-        margin-left: 65%;
-    }
-
-    div.col-2.exchange {
-        position: relative;
-        width: 100%;
-        margin-left: -4vw;
-        margin-right: 4vw;
-    }
-
-    div.buttonBreak {
-        display: inline-block;
-
-    }
-
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
-
-    h5 {
-        font-size: 1.5rem
-    }
-
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 27vw;
-        padding-right: 0vw;
-        padding-left: 4vw;
-    }
+@media (max-width: 769px) {
+  html {
+    font-size: 0.7rem;
+  }
+  div.col-md-7.offset-md-9 {
+    margin-left: 74%;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
 }
 
-@media (min-width: 500px) and (max-width: 550px) {
+@media (max-width: 602px) {
+  div.col-md-7.offset-md-9 {
+    margin-left: 71%;
+  }
 
-    div.col-md-7.offset-md-9 {
-        margin-left: 65%;
-    }
+  h5.my-0.mr-md-auto.font-weight-normal {
+    position: absolute;
+    top: 2.5vh;
+    left: 2vw;
+  }
 
-    div.col-2.exchange {
-        position: relative;
-        width: 100%;
-        margin-left: -6vw;
-        margin-right: 5vw;
-    }
+  nav {
+    margin-left: 11.5vw;
+  }
 
-    div.buttonBreak {
-        display: inline-block;
+  form {
+    position: absolute;
+    top: 1.5vh;
+    right: 2vw;
+  }
 
-    }
+  img.exchange {
+    transform: scale(0.8);
+    margin-left: -2vw;
+  }
 
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
+  footer {
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+  }
 
-    h5 {
-        font-size: 1.5rem
-    }
+  footer img {
+    margin-top: 3vh;
+  }
 
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 27vw;
-        padding-right: 0vw;
-        padding-left: 4vw;
-    }
+  footer .col-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  footer h5 {
+    margin-left: 6vw;
+  }
+
+  footer nav {
+    margin-left: 6vw;
+  }
 }
 
-@media (min-width: 401px) and (max-width: 499px) {
+@media (max-width: 415px) {
+  div.col-md-7.offset-md-9 {
+    margin-left: 69%;
+  }
 
-    html {
-        font-size: 0.8rem;
-    }
+  nav.my-2.my-md-0.mr-md-3 {
+    display: none;
+  }
 
-    div.col-md-7.offset-md-9 {
-        margin-left: 39%;
-        margin-bottom: 7%;
-    }
+  .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm {
+    padding: 2.5rem !important;
+  }
 
-    div.col-2.exchange {
-        display: none;
-    }
+  h5.my-0.mr-md-auto.font-weight-normal {
+    position: absolute;
+    top: 3.4vh;
+    left: 3vw;
+  }
+  form {
+    position: absolute;
+    top: 2.5vh;
+  }
 
-    div.buttonBreak {
-        display: inline-block;
+  .col-2,
+  .col-5 {
+    padding-left: 15px;
+  }
 
-    }
+  img.exchange {
+    transform: scale(0.7);
+    margin-left: -7vw;
+  }
 
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
+  footer {
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+  }
 
-    h5 {
-        font-size: 1.5rem
-    }
+  footer img {
+    margin-top: 7vh;
+  }
 
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 30vw;
-        padding-right: 1vw;
-        padding-left: 2vw;;
-    }
+  footer h5 {
+    margin-left: 7vw;
+  }
 
-
-    .CurrencyInfo {
-        display: none;
-        ;
-    }
-
-    div.container.marketing {
-        display: none;
-    }
-
-    div.col-5 {
-        display: inline-block;
-        padding-left: 6vw;
-        margin: 0 auto;
-        box-sizing: initial
-    }
-
-    div.col-5:nth-child(3) {
-        margin-top: 25px
-    }
-
-
-
+  footer nav {
+    margin-left: 7vw;
+  }
 }
 
-@media (min-width: 360px) and (max-width: 400px) {
-
-    html {
-        font-size: 0.6rem;
-    }
-
-    div.col-md-7.offset-md-9 {
-        margin-left: 40%;
-        margin-bottom: 7%;
-    }
-
-    div.col-2.exchange {
-        display: none;
-    }
-
-    div.buttonBreak {
-        display: inline-block;
-
-    }
-
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
-
-    h5 {
-        font-size: 1.4rem
-    }
-
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 30vw;
-        padding-right: 1vw;
-        padding-left: 2vw;
-    }
-
-    .CurrencyInfo {
-        display: none;
-        ;
-    }
-
-    div.container.marketing {
-        display: none;
-    }
-
-    div.col-5 {
-        display: inline-block;
-        padding-left: 6vw;
-        margin: 0 auto;
-        box-sizing: initial
-    }
-
-    div.col-5:nth-child(3) {
-        margin-top: 25px
-    }
+@media (max-width: 413px) {
+  h5.my-0.mr-md-auto.font-weight-normal {
+    top: 4vh;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 359px) {
+@media (max-width: 376px) {
+  html {
+    font-size: 0.6rem;
+  }
 
-    html {
-        font-size: 0.6rem;
-    }
+  div.col-md-7.offset-md-9 {
+    margin-left: 67%;
+  }
 
-    div.col-md-7.offset-md-9 {
-        margin-left: 38%;
-        margin-bottom: 7%;
-    }
+  img.exchange {
+    display: none;
+  }
 
-    div.col-2.exchange {
-        display: none;
-    }
+  .col-2 {
+    flex: 0;
+    max-width: 1%;
+  }
 
-    div.buttonBreak {
-        display: inline-block;
+  .col-5 {
+    flex: 0 0 46%;
+    max-width: 46%;
+  }
 
-    }
+  footer img {
+    margin-top: 5vh;
+  }
+}
 
-    form:nth-of-type(1) {
-        display: none;
-        flex-flow: none;
-        align-items: center;
-    }
+@media (max-width: 361px) {
+  div.col-md-7.offset-md-9 {
+    margin-left: 40%;
+  }
 
-    h5 {
-        font-size: 1.3rem
-    }
+  .col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
 
-    div.col-6.col-md {
-        font-size: 1rem;
-        display: block;
-        margin: 0 30vw;
-        padding-right: 1vw;
-        padding-left: 2vw;
-    }
-
-    .CurrencyInfo {
-        display: none;
-        ;
-    }
-
-    div.container.marketing {
-        display: none;
-    }
-
-    div.col-5 {
-        display: inline-block;
-        padding-left: 6vw;
-        margin: 0 auto;
-        box-sizing: initial
-    }
-
-    div.col-5:nth-child(3) {
-        margin-top: 25px
-    }
+@media (min-width: 300px) {
+  .col-md-7 {
+    flex: 50 !important;
+  }
 }
