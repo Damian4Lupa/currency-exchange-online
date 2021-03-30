@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import '../styles/App.css'
-import '../styles/media.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import Header from './Header'
-import Footer from './Footer'
-import Offer from './Offer'
-import Calculator from './Calculator';
+import React, { Component } from "react";
+import "../styles/App.css";
+import "../styles/media.css";
+import Header from "./Header";
+import Calculator from "./Calculator";
+import Offer from "./Offer";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
@@ -21,7 +20,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
