@@ -62,8 +62,6 @@ class Calculator extends Component {
     setTimeout(() => {
       this.conversion();
     }, 500);
-
-    console.log("zamontowano");
   }
 
   componentDidUpdate() {
