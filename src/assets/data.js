@@ -1,0 +1,40 @@
+const data = [
+  { id: "EUR", title: "Euro", symbol: "€" },
+  { id: "BGN", title: "Bulgarian lev", symbol: "лв" },
+  { id: "NZD", title: "New Zealand dollar", symbol: "$" },
+  { id: "ILS", title: "Israeli new shekel", symbol: "₪" },
+  { id: "RUB", title: "Russian ruble", symbol: "₽" },
+  { id: "CAD", title: "Canadian Dollar", symbol: "$" },
+  { id: "USD", title: "U. S. Dollar", symbol: "$" },
+  { id: "PHP", title: "Philippine peso", symbol: "₱" },
+  { id: "CHF", title: "Swiss Francs", symbol: "CHF" },
+  { id: "ZAR", title: "South African rand", symbol: "R" },
+  { id: "AUD", title: "Australian Dollar", symbol: "$" },
+  { id: "JPY", title: "Yen", symbol: "¥" },
+  { id: "TRY", title: "Turkish lira", symbol: "₺" },
+  { id: "HKD", title: "Hong Kong dollar", symbol: "$" },
+  { id: "MYR", title: "Malaysian ringgit", symbol: "RM" },
+  { id: "THB", title: "Thai baht", symbol: "฿" },
+  { id: "HRK", title: "Croatian kuna", symbol: "kn" },
+  { id: "NOK", title: "Norwegian Kroners", symbol: "kr" },
+  { id: "IDR", title: "Indonesian rupiah", symbol: "Rp" },
+  { id: "DKK", title: "Danish Kroners", symbol: "kr" },
+  { id: "CZK", title: "Czech Koruna", symbol: "Kc" },
+  { id: "HUF", title: "Hungarian forint", symbol: "Ft" },
+  { id: "GBP", title: "Pounds Sterling", symbol: "£" },
+  { id: "MXN", title: "Mexican Pesos", symbol: "$" },
+  { id: "KRW", title: "South Korean won", symbol: "₩" },
+  { id: "ISK", title: "Icelandic krona", symbol: "kr" },
+  { id: "SGD", title: "Singapore dollar", symbol: "$" },
+  { id: "BRL", title: "Brazilian real", symbol: "R$" },
+  { id: "PLN", title: "Polish złoty", symbol: "zł" },
+  { id: "INR", title: "Indian Rupee", symbol: "₹" },
+  { id: "RON", title: "Romanian leu", symbol: "lei" },
+  { id: "CNY", title: "Renminbi (China)", symbol: "元" },
+  { id: "SEK", title: "Swedish Kroners", symbol: "kr" },
+];
+
+export default data
+
+
+
