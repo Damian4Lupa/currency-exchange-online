@@ -1,9 +1,43 @@
 import React from "react";
 
 const CurrencyInfo = (props) => {
+  const DataInfo = () => {
+    let monthArray = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let time = new Date();
+    let year = time.getFullYear();
+    let month = time.getMonth();
+    let day = time.getDate();
+    let daySufix =
+      day >= 10 && day <= 20
+        ? "th"
+        : (day % 10) == 1
+        ? "st"
+        : day == 2
+        ? "nd"
+        : day == 3
+        ? "rd"
+        : "th";
+    let date = `${day}${daySufix} ${monthArray[month]} ${year}.`;
+    return date;
+  };
+
   const CurrencyInfo = (
     <center>
-      <p>{`Data on currencies come from the European Central Bank of ${props.date}`}</p>
+      <p>{`The currencies have been updated from the Free Currency Conversion, last transfer: ${DataInfo()}`}</p>
     </center>
   );
   let rate = 0;
@@ -23,9 +57,7 @@ const CurrencyInfo = (props) => {
           </div>
         </div>
       </section>
-      <section className="CurrencyInfo">
-        {props.date ? CurrencyInfo : null}
-      </section>
+      <article className="CurrencyInfo">{CurrencyInfo}</article>
     </>
   );
 };

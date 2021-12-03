@@ -17,7 +17,6 @@ class Calculator extends Component {
     valueIHave: "100",
     valueIWant: "",
     currency: [],
-    date: "",
     rate: 1.1245,
   };
 
@@ -74,10 +73,7 @@ class Calculator extends Component {
 
   downloadCurrency = () => {
     let accessKey = "a7f6a3b0-4bdc-11ec-b633-3fc5946078f1";
-
     const API = `https://freecurrencyapi.net/api/v2/latest?apikey=${accessKey}&base_currency=${this.state.currencyIHave}`;
-
-    console.log("wysłanie zapytania");
 
     fetch(API)
       .then((response) => {
@@ -92,11 +88,8 @@ class Calculator extends Component {
       .then((response) => response.json())
       .then((data) => {
         const currency = data.data;
-        const date = data.query.timestamp;
-        console.log(data);
         this.setState({
           currency,
-          date,
         });
       })
       .then(() => {
@@ -225,7 +218,7 @@ class Calculator extends Component {
   render() {
     const btn_class = this.state.rotateButton ? "rotate" : "exchange";
 
-    const { valueIHave, valueIWant, currencyIHave, currencyIWant, date, rate } =
+    const { valueIHave, valueIWant, currencyIHave, currencyIWant, rate } =
       this.state;
 
     return (
@@ -299,7 +292,7 @@ class Calculator extends Component {
             </div>
           </div>
         </section>
-        <CurrencyInfo date={date} rate={rate} />
+        <CurrencyInfo rate={rate} />
       </>
     );
   }
